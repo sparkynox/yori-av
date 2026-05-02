@@ -9,7 +9,7 @@ R='\033[0;31m'; G='\033[0;32m'; Y='\033[1;33m'; B='\033[1;34m'
 C='\033[0;36m'; M='\033[0;35m'; W='\033[1;37m'; DIM='\033[2m'
 BOLD='\033[1m'; BLINK='\033[5m'; NC='\033[0m'
 
-# ─── Paths ─────────────────────────────────────────────────────
+# Paths
 if [ -d "/data/data/com.termux/files" ]; then
   PREFIX="/data/data/com.termux/files/usr"
   HOME_DIR="/data/data/com.termux/files/home"
@@ -54,7 +54,7 @@ SIGNATURES=(
   "EICAR-STANDARD-ANTIVIRUS-TEST-FILE|EICAR test virus"
 )
 
-# ─── Helpers ───────────────────────────────────────────────────
+# Helpers
 log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" >> "$LOG_FILE"; }
 
 print_line() {
@@ -111,7 +111,7 @@ check_storage() {
   fi
 }
 
-# ─── Banner ────────────────────────────────────────────────────
+# Banner
 banner() {
   clear
   echo ""
@@ -137,7 +137,7 @@ banner() {
   echo ""
 }
 
-# ─── Main Menu ─────────────────────────────────────────────────
+# Main Menu
 main_menu() {
   banner
   echo -e "  ${BOLD}${W}MAIN MENU${NC}\n"
@@ -164,9 +164,7 @@ main_menu() {
   esac
 }
 
-# ═══════════════════════════════════════════════════════════════
-#  MODULE 1 — VIRUS SCANNER
-# ═══════════════════════════════════════════════════════════════
+# MODULE 1 — VIRUS SCANNER
 menu_scanner() {
   clear; banner
   echo -e "  ${BOLD}${C}🛡  VIRUS SCANNER${NC}\n"
@@ -262,9 +260,7 @@ run_scan() {
   pause; menu_scanner
 }
 
-# ═══════════════════════════════════════════════════════════════
-#  MODULE 2 — TEMP CLEANER
-# ═══════════════════════════════════════════════════════════════
+# MODULE 2 — TEMP CLEANER
 menu_cleaner() {
   clear; banner
   echo -e "  ${BOLD}${G}🧹  TEMP CLEANER${NC}\n"
@@ -439,9 +435,7 @@ dry_run() {
   pause; menu_cleaner
 }
 
-# ═══════════════════════════════════════════════════════════════
-#  MODULE 3 — OPTIMIZER
-# ═══════════════════════════════════════════════════════════════
+# MODULE 3 — OPTIMIZER
 menu_optimizer() {
   clear; banner
   echo -e "  ${BOLD}${M}⚡  SYSTEM OPTIMIZER${NC}\n"
@@ -579,9 +573,7 @@ full_optimize() {
   log "FULL OPTIMIZE done"; pause; menu_optimizer
 }
 
-# ═══════════════════════════════════════════════════════════════
-#  MODULE 4 — QUARANTINE
-# ═══════════════════════════════════════════════════════════════
+# MODULE 4 — QUARANTINE
 menu_quarantine() {
   clear; banner
   echo -e "  ${BOLD}${Y}📋  QUARANTINE VAULT${NC}"
@@ -615,9 +607,7 @@ menu_quarantine() {
   esac
 }
 
-# ═══════════════════════════════════════════════════════════════
-#  MODULE 5 — LOGS
-# ═══════════════════════════════════════════════════════════════
+# MODULE 5 — LOGS
 view_logs() {
   clear; banner
   echo -e "  ${BOLD}${B}📜  LOGS${NC}  ${DIM}$LOG_FILE${NC}\n"; print_line "─"
@@ -639,9 +629,7 @@ view_logs() {
   main_menu
 }
 
-# ═══════════════════════════════════════════════════════════════
-#  MODULE 6 — ABOUT
-# ═══════════════════════════════════════════════════════════════
+# MODULE 6 — ABOUT
 about() {
   clear; banner; print_line "═"
   echo -e "  ${BOLD}${W}Yori-AV  v1.1.0${NC}"; print_line "─"
@@ -658,5 +646,5 @@ about() {
   print_line "═"; pause; main_menu
 }
 
-# ─── Start ─────────────────────────────────────────────────────
+# Start
 main_menu
